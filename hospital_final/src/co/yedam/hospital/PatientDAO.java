@@ -43,7 +43,7 @@ public class PatientDAO extends DAO{
 		try {
 			psmt = conn.prepareStatement(sql);
 			if(pnt.getName() != null) {
-				psmt.setString(1, pnt.getName());;
+				psmt.setString(1, pnt.getName());
 			} else if(pnt.getCallNumber() != null) {
 				psmt.setString(1, pnt.getCallNumber());
 			} 
