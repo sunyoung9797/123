@@ -41,7 +41,7 @@ public class Main {
 		scn.nextLine();
 		System.out.println("환자전화번호를 입력하세요>>");
 		String callNumber = scn.nextLine();
-		System.out.println("최근방문날짜를 입력하세요(YYMMDD)>>");
+		System.out.println("최근방문날짜를 입력하세요(YYYY-MM-DD)>>");
 		String latestDate = scn.nextLine();
 		
 		System.out.println("환자병명을 입력하세요>>");
@@ -111,6 +111,7 @@ public class Main {
 		MedicalDAO dao2 = new MedicalDAO();
 		MedicalVO rmed = dao2.getMedicalVO(code);
 
+		System.out.println("(수정할 내용이 없다면 엔터를 계속 눌러주세요)");
 		System.out.println("환자이름을 입력하세요>>");
 		String name = scn.nextLine();
 		if(!name.equals("")) {
@@ -126,7 +127,7 @@ public class Main {
 		if(!callNumber.equals("")) {
 			rpnt.setCallNumber(callNumber);
 		}
-		System.out.println("최근방문날짜를 입력하세요(YYMMDD)>>");
+		System.out.println("최근방문날짜를 입력하세요(YYYY-MM-DD)>>");
 		String latestDate = scn.nextLine();
 		if(!latestDate.equals("")) {
 			rpnt.setLatestDate(latestDate);
