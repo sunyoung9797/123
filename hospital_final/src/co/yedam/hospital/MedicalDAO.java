@@ -26,9 +26,8 @@ public class MedicalDAO extends DAO {
 	}
 	
 	public List<MedicalVO> searchPatient(MedicalVO med) {
-		String sql = "select * from patient_info m\r\n" + 
-				"left outer join medical_info i\r\n" + 
-				"on m.patient_code = i.patient_code ";
+		String sql = "select * from medical_info \r\n" ;
+				
 		if(med.getDisease() != null) {
 			sql += "where patient_disease like '%'||?||'%' ";
 		} else if(med.getDoctor() != null) {
@@ -40,7 +39,7 @@ public class MedicalDAO extends DAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 			if(med.getDisease() != null) {
-				psmt.setString(1, med.getDisease());;
+				psmt.setString(1, med.getDisease());
 			} else if(med.getDoctor() != null) {
 				psmt.setString(1, med.getDoctor());
 			} 

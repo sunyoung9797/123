@@ -43,7 +43,7 @@ public class PatientDAO extends DAO{
 		try {
 			psmt = conn.prepareStatement(sql);
 			if(pnt.getName() != null) {
-				psmt.setString(1, pnt.getName());;
+				psmt.setString(1, pnt.getName());
 			} else if(pnt.getCallNumber() != null) {
 				psmt.setString(1, pnt.getCallNumber());
 			} 
@@ -96,7 +96,7 @@ public class PatientDAO extends DAO{
 	public void updatePatient(PatientVO pnt) {
 		System.out.println(pnt);
 		String sql = "update patient_info set patient_name=?, patient_age=?, "
-				+ "                    patient_call_number=?, latest_date=? "
+				+ "                    patient_call_number=?, latest_date=? "//2021-0
 				+ "                                  where patient_code = ?";
 		connect();
 		try {
@@ -104,7 +104,7 @@ public class PatientDAO extends DAO{
 			psmt.setString(1, pnt.getName());
 			psmt.setInt(2, pnt.getAge());
 			psmt.setString(3, pnt.getCallNumber());
-			psmt.setString(4, pnt.getLatestDate().substring(0,6));
+			psmt.setString(4, pnt.getLatestDate().substring(0,10));
 			psmt.setString(5, pnt.getCode());
 			
 			int r = psmt.executeUpdate();
